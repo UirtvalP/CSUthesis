@@ -31,8 +31,8 @@
 \RequirePackage{ifxetex}
 \RequireXeTeX
 \ifxetex\else
-\ClassError{CSUthesis}{You must use the `xelatex' driver\MessageBreak Please choose `xelatex'}{%
-Just choose `xelatex', no `pdflatex' or `latex' and so on.}
+    \ClassError{CSUthesis}{You must use the `xelatex' driver\MessageBreak Please choose `xelatex'}{%
+        Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 \fi
 % 相关宏包 %
 % ------------------------------------%
@@ -140,9 +140,9 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 \setmonofont{Courier New}
 \setsansfont{Arial}
 \renewcommand\normalsize{%
-	\@setfontsize\normalsize{12.05}{14.45}%
-	\abovedisplayskip 12\p@ \@plus3\p@ \@minus7\p@
-	\abovedisplayshortskip \z@ \@plus3\p@
+    \@setfontsize\normalsize{12.05}{14.45}%
+    \abovedisplayskip 12\p@ \@plus3\p@ \@minus7\p@
+    \abovedisplayshortskip \z@ \@plus3\p@
     \belowdisplayshortskip 6.5\p@ \@plus3.5\p@ \@minus3\p@
 }
 % 协议页的标题按模板是华文新魏
@@ -172,7 +172,7 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 \newcommand*{\csu@cap@tablename}{表}
 \newcommand*{\csu@cap@appendixname}{附录}
 \newcommand*{\csu@cap@abstractname}{摘要}
- %%%  中文关键字
+%%%  中文关键字
 \newcommand*{\csu@cap@keywordsname}{关键字}
 
 
@@ -233,11 +233,11 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
         \centering
         \linespread{1.5}
         \vspace*{1.5cm}
-\ifDoctor
-        {\zihao{-2} \bfseries \heiti 博士学位论文 \par} % 小二号黑体
-\else
-        {\zihao{-2} \bfseries \heiti 硕士学位论文 \par} % 小二号黑体
-\fi
+        \ifDoctor
+            {\zihao{-2} \bfseries \heiti 博士学位论文 \par} % 小二号黑体
+        \else
+            {\zihao{-2} \bfseries \heiti 硕士学位论文 \par} % 小二号黑体
+        \fi
         \vspace{2cm} % 两个空行
         {\zihao{2} \bfseries \heiti \@titlecn \par} % 二号黑体
         {\zihao{-2}\bfseries \TimesNewRoman \@titleen \par} % 小二号，timesnewroman
@@ -245,25 +245,25 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
         {
             \zihao{3} \bfseries \songti
             \begin{tabular}{ll}
-\ifAcademic
-                \makebox[6em][s]{一级学科} & \makebox[14em]{\@priormajor} \\
-                \makebox[6em][s]{二级学科} & \makebox[14em]{\@minormajor} \\  
-\else
-      		\makebox[6em][s]{专业学位类别} & \makebox[14em]{\@priormajor} \\
-                \makebox[6em][s]{专业领域} & \makebox[14em]{\@minormajor} \\
-\fi
-  
-\ifblindreview
-                \makebox[6em][s]{研究方向} & \makebox[14em]{\@interestmajor} \\
-                \makebox[6em][s]{学号} & \makebox[14em]{\@studentid} \\
-\else
-                \makebox[6em][s]{作者姓名} & \makebox[14em]{\@author} \\
-                \makebox[6em][s]{指导教师} & \makebox[14em]{\@supervisor} \\
-\fi
+                \ifAcademic
+                \makebox[6em][s]{一级学科}   & \makebox[14em]{\@priormajor}    \\
+                \makebox[6em][s]{二级学科}   & \makebox[14em]{\@minormajor}    \\
+                \else
+                \makebox[6em][s]{专业学位类别} & \makebox[14em]{\@priormajor}    \\
+                \makebox[6em][s]{专业领域}   & \makebox[14em]{\@minormajor}    \\
+                \fi
+
+                \ifblindreview
+                \makebox[6em][s]{研究方向}   & \makebox[14em]{\@interestmajor} \\
+                \makebox[6em][s]{学号}     & \makebox[14em]{\@studentid}     \\
+                \else
+                \makebox[6em][s]{作者姓名}   & \makebox[14em]{\@author}        \\
+                \makebox[6em][s]{指导教师}   & \makebox[14em]{\@supervisor}    \\
+                \fi
             \end{tabular}
         }
         \par
-        \vspace{4cm} 
+        \vspace{4cm}
         % \vfill
         {
             \centering
@@ -285,10 +285,10 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
     {
         \zihao{4} \songti
         \begin{tabular}{l@{}c p{3cm} l@{}c}     % @{}去除边框距离，更符合学校模板的下划线紧贴描述文字
-            中图分类号  & \underline{\makebox[3cm][c]{\@clcnumber}} & &
-            学校代码    & \underline{\makebox[3cm][c]{\@schoolcode}} \\ 
-            UDC         & \underline{\makebox[3cm][c]{\@udc}} & &
-            学位类别    & \underline{\makebox[3cm][c]{\@academiccategory}} \\ 
+            中图分类号 & \underline{\makebox[3cm][c]{\@clcnumber}}        &  &
+            学校代码  & \underline{\makebox[3cm][c]{\@schoolcode}}            \\
+            UDC   & \underline{\makebox[3cm][c]{\@udc}}              &  &
+            学位类别  & \underline{\makebox[3cm][c]{\@academiccategory}}      \\
         \end{tabular}
     }
 
@@ -299,11 +299,11 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
             \zihao{-2}
             % 注意centering的使用，只在局部环境中使用。
             \vspace{4ex} % 空行
-\ifDoctor
-            { \bfseries \heiti 博士学位论文 \par} % 小二号黑体加粗
-\else
-            { \bfseries \heiti 硕士学位论文 \par} % 小二号黑体加粗
-\fi
+            \ifDoctor
+                { \bfseries \heiti 博士学位论文 \par} % 小二号黑体加粗
+            \else
+                { \bfseries \heiti 硕士学位论文 \par} % 小二号黑体加粗
+            \fi
             \vspace{4ex} % 空行
             {\zihao{2} \bfseries \heiti \@titlecn \par} % 中文标题二号黑体加粗
             { \bfseries \TimesNewRoman \@titleen \par} % 英文标题小二号 Times New Roman，加粗
@@ -312,23 +312,23 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
         \vspace{1.2cm} % 空行
 
         {
-            \zihao{3} \songti 
+            \zihao{3} \songti
             \setlength\parindent{2em} % 由于这里填写的内容不对称，完全居中反而不够美观，于是缩进一个汉字的宽度
             \begin{tabular}{ll}
                 % 利用\makebox[7em][s]{} 实现两端对齐，即字数不同但左右对齐。
                 % 7em表示分散对齐的最长的长度为7个字的长度，参数s表示两端分散对齐。
-                \makebox[6em][s]{作者姓名}      &  \makebox[14em]{\@author}        \\[6pt]
-\ifAcademic
-                \makebox[6em][s]{一级学科}      &  \makebox[14em]{\@priormajor}    \\[6pt]
-                \makebox[6em][s]{二级学科}      &  \makebox[14em]{\@minormajor}    \\[6pt]
-\else
-			\makebox[6em][s]{专业学位类别}      &  \makebox[14em]{\@priormajor}    \\[6pt]
-                \makebox[6em][s]{专业领域}      &  \makebox[14em]{\@minormajor}    \\[6pt]
-\fi
-                \makebox[6em][s]{研究方向}      &  \makebox[14em]{\@interestmajor} \\[6pt]
-                \makebox[6em][s]{二级培养单位}  &  \makebox[14em]{\@department}    \\[6pt]
-                \makebox[6em][s]{指导教师}      &  \makebox[14em]{\@supervisor}    \\[6pt]
-                \makebox[6em][s]{副指导教师}    &  \makebox[14em]{\@subsupervisor} \\[6pt]
+                \makebox[6em][s]{作者姓名}   & \makebox[14em]{\@author}        \\[6pt]
+                \ifAcademic
+                \makebox[6em][s]{一级学科}   & \makebox[14em]{\@priormajor}    \\[6pt]
+                \makebox[6em][s]{二级学科}   & \makebox[14em]{\@minormajor}    \\[6pt]
+                \else
+                \makebox[6em][s]{专业学位类别} & \makebox[14em]{\@priormajor}    \\[6pt]
+                \makebox[6em][s]{专业领域}   & \makebox[14em]{\@minormajor}    \\[6pt]
+                \fi
+                \makebox[6em][s]{研究方向}   & \makebox[14em]{\@interestmajor} \\[6pt]
+                \makebox[6em][s]{二级培养单位} & \makebox[14em]{\@department}    \\[6pt]
+                \makebox[6em][s]{指导教师}   & \makebox[14em]{\@supervisor}    \\[6pt]
+                \makebox[6em][s]{副指导教师}  & \makebox[14em]{\@subsupervisor} \\[6pt]
             \end{tabular}
         }
 
@@ -337,8 +337,8 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
         {
             \zihao{-3} \songti
             \begin{tabular}{l@{}l p{0.5cm} l@{}l}
-                论文答辩日期   & \underline{\makebox[3cm][c]{}} & & 
-                答辩委员会主席 & \underline{\makebox[3cm][c]{}} \\ 
+                论文答辩日期  & \underline{\makebox[3cm][c]{}} &  &
+                答辩委员会主席 & \underline{\makebox[3cm][c]{}}      \\
             \end{tabular}
         }
     }
@@ -346,7 +346,7 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
     \vspace{3cm}
     {
         \linespread{1.5}
-        {\centering \zihao{-3} \songti 中\quad 南\quad 大\quad 学 \par} 
+        {\centering \zihao{-3} \songti 中\quad 南\quad 大\quad 学 \par}
         {\centering \zihao{-3} \songti \@thesisdate \par}
     }
     % 中 南 大 学 （小三号宋体）
@@ -376,16 +376,16 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 
         申请学位论文与资料若有不实之处，本人承担一切相关责任。
 
-    	 \vspace{20pt}
+        \vspace{20pt}
 
         %\begin{flushright}
-            学位论文作者签名：\underline{\makebox[5em][c]{}} ~~
-            日期：
-            \underline{\makebox[3em][c]{}} 年
-            \underline{\makebox[1.5em][c]{}} 月
-            \underline{\makebox[1.5em][c]{}} 日
+        学位论文作者签名：\underline{\makebox[5em][c]{}} ~~
+        日期：
+        \underline{\makebox[3em][c]{}} 年
+        \underline{\makebox[1.5em][c]{}} 月
+        \underline{\makebox[1.5em][c]{}} 日
         %\end{flushright}
-        
+
     }
 
     \vspace{1.2cm}
@@ -399,41 +399,41 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
         \zihao{4} \setlength{\baselineskip}{20pt}
         本学位论文作者和指导教师完全了解中南大学有关保留、使用学位论文的规定：即学校有权保留并向国家有关部门或机构送交学位论文的复印件和电子版，允许本学位论文被查阅和借阅。本人授权中南大学可以将本学位论文的全部或部分内容编入有关数据库进行检索和公开传播，可以采用复印、缩印或其它手段保存和汇编学位论文。本人同意按《中国优秀博硕士学位论文全文数据库出版章程》规定享受相关权益。本人保证：毕业后以学位论文内容发表的论文作者单位注明中南大学；学位论文电子文档的内容和纸质学位论文的内容相一致。
 
-	   延缓公开论文延缓到期后适用本授权书，涉密论文在解密后适用本授权书。
-	   
-	   %\vspace{20pt}
-	   本学位论文属于：(请在以下相应方框内打“√”）
+        延缓公开论文延缓到期后适用本授权书，涉密论文在解密后适用本授权书。
 
-	   $\square$ 公开
+        %\vspace{20pt}
+        本学位论文属于：(请在以下相应方框内打“√”）
+
+        $\square$ 公开
 
         $\square$ 延缓公开，延缓期限（\underline{\makebox[1.2em][c]{}} 年
-            \underline{\makebox[0.8em][c]{}} 月
-            \underline{\makebox[0.8em][c]{}} 日至\underline{\makebox[1.2em][c]{}} 年
-            \underline{\makebox[0.8em][c]{}} 月
-            \underline{\makebox[0.8em][c]{}} 日）
+        \underline{\makebox[0.8em][c]{}} 月
+        \underline{\makebox[0.8em][c]{}} 日至\underline{\makebox[1.2em][c]{}} 年
+        \underline{\makebox[0.8em][c]{}} 月
+        \underline{\makebox[0.8em][c]{}} 日）
 
 
 
-    	  \vspace{20pt}
+        \vspace{20pt}
 
         \begin{table}[!ht]
-            \zihao{4} 
+            \zihao{4}
             \begin{tabular*}{\hsize}{@{}@{\extracolsep{\fill}}lll@{}}
-            学位论文作者签名：\underline{\makebox[5em][c]{}} & &
-            指导教师签名：\underline{\makebox[5em][c]{}} \\
-    			\vspace{-8pt}
-            \\
-            日期：
-            \underline{\makebox[3em][c]{}} 年
-            \underline{\makebox[1.5em][c]{}} 月
-            \underline{\makebox[1.5em][c]{}} 日 & &
-            日期：
-            \underline{\makebox[3em][c]{}} 年
-            \underline{\makebox[1.5em][c]{}} 月
-            \underline{\makebox[1.5em][c]{}} 日 \\
-		\vspace{-8pt}
- 		\\
-		（填写阿拉伯数字）
+                学位论文作者签名：\underline{\makebox[5em][c]{}} & &
+                指导教师签名：\underline{\makebox[5em][c]{}} \\
+                \vspace{-8pt}
+                \\
+                日期：
+                \underline{\makebox[3em][c]{}} 年
+                \underline{\makebox[1.5em][c]{}} 月
+                \underline{\makebox[1.5em][c]{}} 日 & &
+                日期：
+                \underline{\makebox[3em][c]{}} 年
+                \underline{\makebox[1.5em][c]{}} 月
+                \underline{\makebox[1.5em][c]{}} 日 \\
+                \vspace{-8pt}
+                \\
+                （填写阿拉伯数字）
             \end{tabular*}
         \end{table}
     }
@@ -464,9 +464,9 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 % 显示中文关键词和分类号
 {
     \begin{flushleft}
-		\vspace{10pt}
+        \vspace{10pt}
         \noindent {\zihao{4} \songti \@itemcountcn} \par % 图表统计信息为四号宋体
-		\vspace{40pt}
+        \vspace{40pt}
         \noindent {\zihao{4} \bfseries \heiti 关键词：} {\zihao{4} \songti \@keywordscn} \par % 关键词为四号黑体，内容为四号宋体
         \noindent {\zihao{4} \bfseries \heiti 分类号：} {\zihao{4} \songti \@categorycn} \par % 分类号为四号黑体，内容为四号宋体
     \end{flushleft}
@@ -481,9 +481,9 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 \newcommand*{\categoryen}[1]{\gdef\@categoryen{#1}} % 中文分类
 %\newcommand*{\itemcounten}[1]{\gdef\@itemcounten{#1}} % 定义英文图表参考文献统计信息
 \newenvironment{abstracten} { % 新建英文摘要环境
-	\setlength{\baselineskip}{20pt}         % 基准行间距
-	\renewcommand{\baselinestretch}{1.0}   % 几倍行间距
-	{~}
+    \setlength{\baselineskip}{20pt}         % 基准行间距
+    \renewcommand{\baselinestretch}{1.0}   % 几倍行间距
+    {~}
     \vspace{-3pt}
     \begin{center}\TimesNewRoman \zihao{3} \bfseries \@titleen \end{center}
     \vspace{20pt}
@@ -492,9 +492,9 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 }
 {
     \begin{flushleft}
-%		\vspace{10pt}
-%        \noindent {\zihao{4} \songti \@itemcountcn} \par % 图表统计信息为四号宋体
-	   \vspace{20pt}
+        %		\vspace{10pt}
+        %        \noindent {\zihao{4} \songti \@itemcountcn} \par % 图表统计信息为四号宋体
+        \vspace{20pt}
         \noindent {\TimesNewRoman \zihao{4} \bfseries Keywords:~} {\zihao{4} \@keywordsen} \par % 关键词为四号黑体，内容为四号宋体
         \noindent {\TimesNewRoman \zihao{4} \bfseries Classification:~} {\zihao{4} \@categoryen} \par % 分类号为四号黑体，内容为四号宋体
     \end{flushleft}
@@ -518,9 +518,9 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 \titleformat{\section}{\zihao{3} \bfseries \heiti}{第{\thesection}章}{1em}{\centering} % 正文章名居中
 \titlespacing*{\section} {0pt}{18pt}{12pt}
 \preto\section{
-	{~} % 
-	\vspace{-30pt}%
-}
+  {~} % 
+  \vspace{-30pt}%
+ }
 \preto\subsection{\ifnum\value{subsection}=0\addtocontents{toc}{\addvspace{6pt}}\fi}
 \titleformat{\subsection}{\zihao{4} \songti}{\thesubsection}{1em}{}
 \titlespacing*{\subsection} {0pt}{10pt}{8pt}
@@ -600,18 +600,18 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 % 会将它们分在几个不同页，即使它们可在同一页放
 % 得下. 我们可以通过修改 |\topfraction| 和 |\bottomfraction| 分别设置顶端和底端的浮
 % 动环境的最大比例.
- \renewcommand*{\topfraction}{0.9}
- \renewcommand*{\bottomfraction}{0.8}
+\renewcommand*{\topfraction}{0.9}
+\renewcommand*{\bottomfraction}{0.8}
 % 有时\LaTeX{}会把一个浮动环境单独放在一页,
 % 我们要求这个环境至少要占据 85% 才能单独放在一页.
 % 注意:  |\floatpagefraction| 的数值必须小于 |\topfraction|.
- \renewcommand*{\floatpagefraction}{0.85}
+\renewcommand*{\floatpagefraction}{0.85}
 % 关于图片 graphicx
- % 如果图片没有指定后缀, 依次按下列顺序搜索
+% 如果图片没有指定后缀, 依次按下列顺序搜索
 \DeclareGraphicsExtensions{.pdf,.eps,.jpg,.png,.tif}
- % 设置图表搜索路径, 可以给图表文件夹取如下名字
+% 设置图表搜索路径, 可以给图表文件夹取如下名字
 \graphicspath{{figures/}{figure/}{pictures/}%
-  {picture/}{pic/}{pics/}{image/}{images/}}
+        {picture/}{pic/}{pics/}{image/}{images/}}
 
 
 % 插图格式
@@ -629,11 +629,11 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 % \renewcommand{\thefigure} {\thesection-\arabic{figure}}
 
 \renewenvironment{figure}
-  {
-   \setlength\abovecaptionskip{4pt} %% 调整标题与图片距离
-   \setlength\belowcaptionskip{0pt} %% 调整标题与下文距离
-   \@float{figure}}
-  {\end@float}
+{
+    \setlength\abovecaptionskip{4pt} %% 调整标题与图片距离
+    \setlength\belowcaptionskip{0pt} %% 调整标题与下文距离
+    \@float{figure}}
+{\end@float}
 
 %\captionsetup[subfigure]{labelfont=bf,labelsep=period,labelformat=mysublabelfmt}
 \renewcommand\p@subfigure{\thefigure{-}}
@@ -645,53 +645,53 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 % \renewcommand\thesubtable{\alph{subtable})}
 
 \captionsetup[figure]{
-	format=plain,      % 标题从第二行开始是否缩进，plain无缩进，hang有缩进
-	labelsep=quad,     % 分隔符是一个空格
-	font={kai,five},   % 图的字体, 宋体小四
-	position=bottom    % position=bottom, 不代表标题放在下面, 标题仍放在你放\caption的位置.
+    format=plain,      % 标题从第二行开始是否缩进，plain无缩进，hang有缩进
+    labelsep=quad,     % 分隔符是一个空格
+    font={kai,five},   % 图的字体, 宋体小四
+    position=bottom    % position=bottom, 不代表标题放在下面, 标题仍放在你放\caption的位置.
 }
-  
+
 % 表格格式
 % ------------------------------------------------------%
 \renewcommand{\thetable}{\arabic{section}-\arabic{table}}
 % \renewcommand {\thetable} {\thesection-\arabic{table}}
 \captionsetup[table]{
-	format=plain,      % 标题从第二行开始是否缩进，plain无缩进，hang有缩进
-	labelsep=quad,     % 分隔符是一个空格
-	font={kai,five},   % 表的字体, 宋体小四
-	position=top
+    format=plain,      % 标题从第二行开始是否缩进，plain无缩进，hang有缩进
+    labelsep=quad,     % 分隔符是一个空格
+    font={kai,five},   % 表的字体, 宋体小四
+    position=top
 }
 
 \renewenvironment{table}
-  {%\vspace{0.3cm}  % 调整表格与上文距离
-   \setlength\abovecaptionskip{0pt} %% 调整标题与表格距离
-   \setlength\belowcaptionskip{10pt} %% 调整标题与下文距离
-   \@float{table}}
-  {\end@float}
+{%\vspace{0.3cm}  % 调整表格与上文距离
+    \setlength\abovecaptionskip{0pt} %% 调整标题与表格距离
+    \setlength\belowcaptionskip{10pt} %% 调整标题与下文距离
+    \@float{table}}
+{\end@float}
 
 % 算法
 % ------------------------------------------------------%
 \floatname{algorithm}{算法}
 \renewcommand{\thealgorithm}{\arabic{section}-\arabic{algorithm}}
 \captionsetup[algorithm]{
-	format=plain,      % 标题从第二行开始是否缩进，plain无缩进，hang有缩进
-	labelsep=quad,     % 分隔符是一个空格
-	font={kai,five},   % 表的字体, 宋体小四
-	position=top
+    format=plain,      % 标题从第二行开始是否缩进，plain无缩进，hang有缩进
+    labelsep=quad,     % 分隔符是一个空格
+    font={kai,five},   % 表的字体, 宋体小四
+    position=top
 }
 
 % 列表环境设置 %
 % ------------------------------------------------------------------%
 % \RequirePackage{listings}
 \setlist{%
-	topsep=0.3em, % 列表顶端的垂直空白
-	partopsep=0pt, % 列表环境前面紧接着一个空白行时其顶端的额外垂直空白
-	itemsep=0ex plus 0.1ex, % 列表项之间的额外垂直空白
-	parsep=0pt, % 列表项内的段落之间的垂直空白
-	leftmargin=1.5em, % 环境的左边界和列表之间的水平距离
-	rightmargin=0em, % 环境的右边界和列表之间的水平距离
-	labelsep=0.5em, % 包含标签的盒子与列表项的第一行文本之间的间隔
-	labelwidth=2em % 包含标签的盒子的正常宽度；若实际宽度更宽，则使用实际宽度。
+    topsep=0.3em, % 列表顶端的垂直空白
+    partopsep=0pt, % 列表环境前面紧接着一个空白行时其顶端的额外垂直空白
+    itemsep=0ex plus 0.1ex, % 列表项之间的额外垂直空白
+    parsep=0pt, % 列表项内的段落之间的垂直空白
+    leftmargin=1.5em, % 环境的左边界和列表之间的水平距离
+    rightmargin=0em, % 环境的右边界和列表之间的水平距离
+    labelsep=0.5em, % 包含标签的盒子与列表项的第一行文本之间的间隔
+    labelwidth=2em % 包含标签的盒子的正常宽度；若实际宽度更宽，则使用实际宽度。
 }
 
 % 表格 %
@@ -701,7 +701,7 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 \let\csu@endoldtabular\endtabular
 \renewenvironment{tabular} {
     \bgroup
-	\renewcommand{\arraystretch}{1.38}
+    \renewcommand{\arraystretch}{1.38}
     \csu@oldtabular
 } {
     \csu@endoldtabular\egroup
@@ -753,10 +753,10 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 
 \makeatletter
 \def\cleardoublepage{\clearpage\if@twoside \ifodd\c@page\else
-	\hbox{}
-	\thispagestyle{fancy}
-	\newpage
-	\if@twocolumn\hbox{}\newpage\fi\fi\fi}
+            \hbox{}
+            \thispagestyle{fancy}
+            \newpage
+            \if@twocolumn\hbox{}\newpage\fi\fi\fi}
 \makeatother \clearpage{\pagestyle{fancy}\cleardoublepage}
 
 % 8. 参考文献 %

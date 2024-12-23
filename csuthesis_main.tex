@@ -4,7 +4,7 @@
 
 \usepackage[figure,table]{totalcount}
 \usepackage{totcount}
-
+\usepackage{hyperref}    
 %参考文献计数
 \newtotcounter{citnum}
 \def\oldbibitem{} \let\oldbibitem=\bibitem
@@ -38,33 +38,32 @@
 % 封面
 % -----------------------------------------------%
 \makecoverpage
-
 \clearpage
 \mbox{}
 \clearpage
 
 \ifblindreview	% 盲审不需要扉页和声明页
 \else
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% 扉页 
-% -----------------------------------------------%
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% 扉页 
+	% -----------------------------------------------%
 
-\maketitlepage
+	\maketitlepage
 
-\clearpage
-\mbox{}
-\clearpage
+	\clearpage
+	\mbox{}
+	\clearpage
 
-\setlength{\headheight}{9.6mm}
-\setlength{\footskip}{7.9mm}
-\setlength{\textheight}{681.5pt} % 调整版面高度
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% 声明页
-% -----------------------------------------------%
-\announcement
-\clearpage
-\mbox{}
-\clearpage
+	\setlength{\headheight}{9.6mm}
+	\setlength{\footskip}{7.9mm}
+	\setlength{\textheight}{681.5pt} % 调整版面高度
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% 声明页
+	% -----------------------------------------------%
+	\announcement
+	\clearpage
+	\mbox{}
+	\clearpage
 \fi
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -101,6 +100,7 @@
 	\phantomsection                %% 解决目录中超链接地址错误问题
 	\addcontentsline{toc}{section}{目录} % 在目录中添加目录页码.
 	\tableofcontents
+	\label{test}
 }
 \clearpage
 
@@ -111,10 +111,10 @@
 	\renewcommand{\baselinestretch}{1.0}   % 几倍行间距
 	{~}
 	\vspace{-10pt}
-	\renewcommand{\listfigurename}{\hfill \heiti \zihao{3} 插图索引\hfill ~\\}  
+	\renewcommand{\listfigurename}{\hfill \heiti \zihao{3} 插图索引\hfill ~\\}
 	% 在目录中添加插图索引页码，按需确定是否注释下面两行
 	\phantomsection                %% 解决目录中超链接地址错误问题
-	\addcontentsline{toc}{section}{插图索引} 
+	\addcontentsline{toc}{section}{插图索引}
 	%%设置插图索引的 图 标签
 	\let\oldnumberline\numberline%
 	\renewcommand{\numberline}{\figurename~\oldnumberline}
@@ -123,17 +123,16 @@
 }
 
 \clearpage
-
 % 表格索引
 % -------------------------------------------%
-	{
+{
 	\setlength{\baselineskip}{20pt}         % 基准行间距
 	\renewcommand{\baselinestretch}{1.0}   % 几倍行间距
 	{~}
 	\vspace{-10pt}
-	\renewcommand{\listtablename}{\hfill \heiti \zihao{3} 表格索引\hfill ~\\}  
-	 % 在目录中添加表格索引页码，按需确定是否注释下面两行
-	 \phantomsection                %% 解决目录中超链接地址错误问题
+	\renewcommand{\listtablename}{\hfill \heiti \zihao{3} 表格索引\hfill ~\\}
+	% 在目录中添加表格索引页码，按需确定是否注释下面两行
+	\phantomsection                %% 解决目录中超链接地址错误问题
 	\addcontentsline{toc}{section}{表格索引}
 	%%设置表格索引的 表 标签
 	\let\oldnumberline\numberline%
@@ -165,9 +164,9 @@
 
 \fancyhf[RH]{\songti \zihao{5} \leftmark} % 设置所有（奇数和偶数）右侧页眉net
 \ifDoctor
-	\fancyhf[LH]{\songti \zihao{5} 中南大学博士学位论文} % 设置所有（奇数和偶数）左侧页眉
+	\fancyhf[LH]{\songti \zihao{5} 中南大学博士学位论文,第\pageref{test}页} % 设置所有（奇数和偶数）左侧页眉  
 \else
-	\fancyhf[LH]{\songti \zihao{5} 中南大学硕士学位论文} % 设置所有（奇数和偶数）左侧页眉
+	\fancyhf[LH]{\songti \zihao{5} 中南大学硕士学位论文,第\pageref{test}页} % 设置所有（奇数和偶数）左侧页眉  
 \fi
 % 正文内容 
 % --------------------------------------------%
@@ -190,17 +189,17 @@
 	\include{content/content}
 }
 
-	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-	% 临时标签，用于编译时追踪正文末尾
-	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-	
-	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-	% 后续内容，标题三号黑体居中，章节无编号
-	% --------------------------------------------%
-	
-	% https://www.zhihu.com/question/29413517/answer/44358389 %
-	% 说明如下：
-	% secnumdepth 这个计数器是 LaTeX 标准文档类用来控制章节编号深度的。在 article 中，这个计数器的值默认是 3，对应的章节命令是 \subsubsection。也就是说，默认情况下，article 将会对 \subsubsection 及其之上的所有章节标题进行编号，也就是 \part, \section, \subsection, \subsubsection。LaTeX 标准文档类中，最大的标题是 \part。它在 book 和 report 类中的层级是「-1」，在 article 类中的层级是「0」。这里，我们在调用 \appendix 的时候将计数器设置为 -2，因此所有的章节命令都不会编号了。不过，一般还是会保留 \part 的编号的。所以在实际使用中，将它设置为 0 就可以了。
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 临时标签，用于编译时追踪正文末尾
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 后续内容，标题三号黑体居中，章节无编号
+% --------------------------------------------%
+
+% https://www.zhihu.com/question/29413517/answer/44358389 %
+% 说明如下：
+% secnumdepth 这个计数器是 LaTeX 标准文档类用来控制章节编号深度的。在 article 中，这个计数器的值默认是 3，对应的章节命令是 \subsubsection。也就是说，默认情况下，article 将会对 \subsubsection 及其之上的所有章节标题进行编号，也就是 \part, \section, \subsection, \subsubsection。LaTeX 标准文档类中，最大的标题是 \part。它在 book 和 report 类中的层级是「-1」，在 article 类中的层级是「0」。这里，我们在调用 \appendix 的时候将计数器设置为 -2，因此所有的章节命令都不会编号了。不过，一般还是会保留 \part 的编号的。所以在实际使用中，将它设置为 0 就可以了。
 
 % 在修改过程中请注意不要破环命令的完整性
 
@@ -227,7 +226,7 @@
 \addcontentsline{toc}{section}{参考文献} % 由于参考文献不是section，这句把参考文献加入目录
 \zihao{-4} \setmainfont{Times New Roman}
 \setlength{\baselineskip}{20pt}         % 基准行间距 
-\bibliographystyle{gbt7714-2015-little} 
+\bibliographystyle{gbt7714-2015-little}
 \bibliography{thesis-references}
 
 \clearpage
